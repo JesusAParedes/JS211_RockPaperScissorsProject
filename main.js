@@ -12,41 +12,41 @@ const rl = readline.createInterface({
 });
 
 
-const choices = ['rock', 'paper', 'scissors']
-const player1 = choices[Math.floor(Math.random() * 3)]
-const player2 = choices[Math.floor(Math.random() * 3)]
-
 // the function that will be called by the unit test below
-const rockPaperScissors = (player1, player2) => {
+const rockPaperScissors = (hand1, hand2) => {
   // Write code here
   // Use the unit test to see what is expected
+ let fixp1 = hand1.trim().toLowerCase()
 
-  if(player1 === 'rock' && player2 === 'scissors') {
-    return "player1 wins!"
+ let fixp2 = hand2.trim().toLowerCase()
+
+
+  if(fixp1 === 'rock' && fixp2 === 'scissors') {
+    return "Hand one wins!"
   }
   
-  if(player1 === 'rock' && player2 === 'paper') {
-    return 'player2 wins!'
+  if(fixp1 === 'rock' && fixp2 === 'paper') {
+    return "Hand two wins!"
   }
 
-  if(player1 === 'scissors' && player2 === 'paper') {
-    return 'player1 wins!'
+  if(hand1 === 'scissors' && hand2 === 'paper') {
+    return "Hand one wins!"
   }
 
-  if(player1 === 'scissors' && player2 === 'rock') {
-    return 'player2 wins!'
+  if(hand1 === 'scissors' && hand2 === 'rock') {
+    return "Hand two wins!"
   }
 
-  if(player1 === 'paper' && player2 === 'scissors') {
-    return 'player2 wins!'
+  if(fixp1 === 'paper' && fixp2 === 'scissors') {
+    return "Hand two wins!"
   }
 
-  if(player1 === 'paper' && player2 === 'rock') {
-    return 'player1 wins!'
+  if(hand1 === 'paper' && hand2 === 'rock') {
+    return "Hand one wins!"
   }
 
-  if(player1 === player2) {
-    return 'its a draw'
+  if(hand1 === hand2) {
+    return "It's a tie!"
   }
 
 }
@@ -56,7 +56,9 @@ const rockPaperScissors = (player1, player2) => {
 // to close it ctrl + C
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
+    answer1.trim().toLowerCase()
     rl.question('hand2: ', (answer2) => {
+      answer2.trim().toLowerCase()
       console.log( rockPaperScissors(answer1, answer2) );
       getPrompt();
     });
