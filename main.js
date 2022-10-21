@@ -11,11 +11,43 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// the function that will be called by the unit test below
-const rockPaperScissors = (hand1, hand2) => {
 
+const choices = ['rock', 'paper', 'scissors']
+const player1 = choices[Math.floor(Math.random() * 3)]
+const player2 = choices[Math.floor(Math.random() * 3)]
+
+// the function that will be called by the unit test below
+const rockPaperScissors = (player1, player2) => {
   // Write code here
   // Use the unit test to see what is expected
+
+  if(player1 === 'rock' && player2 === 'scissors') {
+    return "player1 wins!"
+  }
+  
+  if(player1 === 'rock' && player2 === 'paper') {
+    return 'player2 wins!'
+  }
+
+  if(player1 === 'scissors' && player2 === 'paper') {
+    return 'player1 wins!'
+  }
+
+  if(player1 === 'scissors' && player2 === 'rock') {
+    return 'player2 wins!'
+  }
+
+  if(player1 === 'paper' && player2 === 'scissors') {
+    return 'player2 wins!'
+  }
+
+  if(player1 === 'paper' && player2 === 'rock') {
+    return 'player1 wins!'
+  }
+
+  if(player1 === player2) {
+    return 'its a draw'
+  }
 
 }
 
